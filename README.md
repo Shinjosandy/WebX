@@ -93,3 +93,152 @@ The objective of this project is to:
 ---
 
 ## 📂 Project Structure
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1️⃣ Install Dependencies
+
+Open terminal inside the project folder and run:
+
+```bash
+npm install
+```
+
+If required:
+
+```bash
+npm install express express-session body-parser ejs uuid
+```
+
+---
+
+### 2️⃣ Start the Server
+
+```bash
+node server.js
+```
+
+---
+
+### 3️⃣ Open in Browser
+
+Visit:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🔎 Application Workflow
+
+1. User registers an account.
+2. User logs in using credentials.
+3. Products are loaded from `products.json`.
+4. User adds products to cart.
+5. Cart is stored inside session.
+6. User places an order.
+7. Order is stored in `orders.json`.
+8. User can view order history.
+
+---
+
+## 🧠 Technical Concepts Demonstrated
+
+### ✅ Node.js HTTP Module
+Used in `server.js` to create the server:
+
+```javascript
+const http = require("http");
+const server = http.createServer(app);
+```
+
+Express internally builds upon the HTTP module.
+
+---
+
+### ✅ File System Module (fs)
+Used to:
+- Read products
+- Store users
+- Store orders
+
+Methods demonstrated:
+- fs.readFileSync()
+- fs.readFile()
+- fs.writeFile()
+
+---
+
+### ✅ Express.js
+- Modular routing
+- Middleware handling
+- Request and response management
+- Error handling middleware
+
+---
+
+### ✅ Session Management
+Implemented using express-session:
+- Maintains login state
+- Stores cart inside session
+- Demonstrates session creation and destruction
+
+---
+
+### ✅ Buffer Module
+Used to encode product description:
+
+```javascript
+const buffer = Buffer.from(product.description);
+product.encodedDescription = buffer.toString("base64");
+```
+
+---
+
+### ✅ Stream Module
+Used to stream product images:
+
+```javascript
+fs.createReadStream(imagePath).pipe(res);
+```
+
+This prevents loading large files into memory.
+
+---
+
+## 🏗 Non-Functional Requirements
+
+- Modular architecture
+- Clean folder structure
+- Proper error handling
+- Scalable and maintainable design
+- Optimized performance using streams
+
+---
+
+## 🔮 Future Enhancements
+
+- Password hashing (bcrypt)
+- MongoDB integration
+- Admin dashboard
+- Search and pagination
+- Payment gateway integration
+- JWT authentication
+- Responsive UI improvements
+
+---
+
+## 👨‍💻 Author
+
+Developed as an academic E-Commerce Web Application using Node.js and Express.js.
+
+---
+
+## 📜 License
+
+This project is developed for educational purposes.
