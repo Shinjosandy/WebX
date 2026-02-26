@@ -1,0 +1,8 @@
+<h2>Your Orders</h2>
+
+<% orders.forEach(order => { %>
+  <div>
+    <h4>Order ID: <%= order.id %></h4>
+    <p>Total: ₹<%= order.total %></p>
+  </div>
+<% }) %>

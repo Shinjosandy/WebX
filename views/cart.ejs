@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>🛒 MyStore</h2>
+  <div>
+    <a href="/products">Products</a>
+    <a href="/users/logout">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Your Cart</h2>
+
+  <% if(cart.length === 0){ %>
+    <p>Your cart is empty.</p>
+  <% } %>
+
+  <% cart.forEach(item => { %>
+    <div class="card">
+      <h3><%= item.name %></h3>
+      <p>₹ <%= item.price %></p>
+      <a class="danger" href="/cart/remove/<%= item.id %>">Remove</a>
+    </div>
+  <% }) %>
+
+  <h3>Total: ₹ <%= total %></h3>
+
+  <% if(cart.length > 0){ %>
+    <form method="POST" action="/orders/place">
+      <button class="btn">Place Order</button>
+    </form>
+  <% } %>
+
+</div>
+
+</body>
+</html>
